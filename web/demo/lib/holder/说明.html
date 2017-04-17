@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>holder</title>
+</head>
+<body>
+<h1>html图片占位符插件holder.js</h1>
+<p>可以为图片生成一个占位符图片也可以为某个区域生成一个占位符图片，准确的说应该是为某个区域生成一个占位符图片，因为img也可以看做是一个区域。不依赖于jquery等第三方库。</p>
+<h2>holder.js图片生成技术是用的svg</h2>
+<p>SVG是个复杂的东西，可以作为一门学问去研究，本文不研究这个。</p>
+<h2>holder.js浏览器兼容性</h2>
+<p>浏览器支持范围还不错，IE678支持部分功能：
+    <br>Chrome、Firefox 3+
+    <br>Safari 4+
+    <br>Internet Explorer 9+ (部分功能支持IE6-8)
+    <br>Opera 12+
+    <br>Android (with fallback)
+</p>
+<h2>在图片img标签上调用：</h2>
+<p>把参数写在src上或者使用data-src,如：src="holder.js/300x200?text=我是占位符" 或者 data-src="holder.js/300x200?text=我是占位符"</p>
+<p>效果如图：</p>
+<p><img src="holder.js/300x200?text=我是占位符&outline=yes" alt=""> 或者 <img data-src="holder.js/300x200?text=我是占位符" alt=""></p>
+<h2>在指定区域调用：</h2>
+<p>比如咱要在 id="test" 这个区域加入占位符可以使用js代码 Holder.addImage("holder.js/200x100?theme=new", "#test").run() 这样插入</p>
+<h2>调用参数</h2>
+<p>多个参数就像url上的参数写法一样用&链接</p>
+<p>
+    所有参数如下：
+    <br>theme:主题。例如:holder.js/300x200?theme=sky
+    <br>random:使用随机主题。例如:holder.js/300x200?random=yes
+    <br>align:"center" ,    //对齐 left,center,right  holder.js/300x200?align=left 并不是很好用，也不建议用，不配置默认居中就好
+    <br>outline:    //画出轮廓和对角线的占位符。例如:holder.js/300x200?outline=yes
+    <br>lineWrap:   //最大线长度宽度比形象。例如:holder.js/300x200?lineWrap=0.5
+    ============================================================================
+    <br>bg: "#eee",         //背景颜色  holder.js/300x200?bg=2a2025
+    <br>fg: "#999",         //字体颜色  holder.js/300x200?fg=ffffff
+    <br>text: 文本,           //文本   holder.js/300x200?text=Hello
+    <br>size: 20,           //字号   holder.js/300x200?text=Hello
+    <br>font: "微软雅黑",   //字体
+    <br>fontweight: "400",   //字体加粗程度，100-700可以尝试
+</p>
+<h2>holder.js自定义皮肤</h2>
+<p>自定义皮肤语法： Holder.addTheme("皮肤名字", { 各种参数对象 });</p>
+<p>调用自定义皮肤就是在调用参数后面附带 theme=皮肤名字，如：data-src="holder.js/300x200?text=我是占位符&theme=皮肤名字"</p>
+<p>
+    皮肤参数：
+    <br>bg: "#eee",         //背景颜色  holder.js/300x200?bg=2a2025
+    <br>fg: "#999",         //字体颜色  holder.js/300x200?fg=ffffff
+    <br>text: 文本,           //文本   holder.js/300x200?text=Hello
+    <br>size: 20,           //字号   holder.js/300x200?text=Hello
+    <br>font: "微软雅黑",   //字体
+    <br>fontweight: "400",   //字体加粗程度，100-700可以尝试
+</p>
+<div id="test"></div>
+<script src="holder.js"></script>
+<script>
+    //自定义皮肤
+    Holder.addTheme("diy", {
+        bg: "#eee",
+        fg: "#999",
+        size: 20,
+        font: "微软雅黑",
+        fontweight: "400",
+        outline:"yes"
+    });
+
+    //在指定区域调用  #test
+    Holder.addTheme("new", {
+        fg: "#ccc",
+        bg: "#000",
+        size: 10
+    }).addImage("holder.js/200x100?theme=new", "#test").run();
+</script>
+</body>
+</html>

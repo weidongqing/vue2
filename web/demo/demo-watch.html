@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/angular/angular.min.js"></script>
+</head>
+<body ng-app="app">
+<div ng-controller="testCtrl">
+    <!--<input type="text" ng-model="date">-->
+    <select ng-options="i.productName for i in watchTest" ng-model="date">
+    </select>
+</div>
+<script>
+    var app=angular.module('app',['ng']);
+    app.controller('testCtrl',function ($scope) {
+        $scope.watchTest = [{
+            id: 10001,
+            mainCategory: '男',
+            productName: '水洗T恤',
+            productColor: '白'
+        }, {
+            id: 10002,
+            mainCategory: '女',
+            productName: '圆领短袖',
+            productColor: '黑'
+        }, {
+            id: 10003,
+            mainCategory: '女',
+            productName: '短袖短袖',
+            productColor: '黃'
+        }];
+        $scope.date=$scope.watchTest[0];
+        $scope.$watch('date',function (newValue,oldValue) {
+            console.log(newValue);
+            console.log(oldValue);
+//            if(newValue!=oldValue){
+//                console.log($scope.date);
+//            }
+        })
+    })
+</script>
+</body>
+</html>

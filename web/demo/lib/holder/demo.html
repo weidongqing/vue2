@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>holder</title>
+</head>
+<body>
+<h2>在图片img标签上调用：</h2>
+<p><img src="holder.js/300x200?text=我是占位符&outline=yes" alt=""> 或者 <img data-src="holder.js/300x200?text=我是占位符" alt=""></p>
+<h2>在指定区域调用：</h2>
+<div id="test"></div>
+<h2>自定义皮肤：</h2>
+<p><img src="holder.js/300x200?text=我是占位符&theme=diy" alt=""> </p>
+<script src="holder.js"></script>
+<script>
+    //自定义皮肤
+    Holder.addTheme("diy", {
+        bg: "#84D19C",
+        fg: "#fff",
+        size: 20,
+        font: "微软雅黑",
+        fontweight: "400",
+        outline:"yes"
+    });
+
+    //在指定区域调用  #test
+    Holder.addTheme("new", {
+        fg: "#ccc",
+        bg: "#000",
+        size: 10
+    }).addImage("holder.js/200x100?theme=new", "#test").run();
+</script>
+</body>
+</html>
